@@ -59,7 +59,7 @@ function getPlayersChoice(){
 function playRound(choice1, choice2){
     console.log("Your choose: "+choice1+"\nComputers choose: "+ choice2);
     if (choice1 == choice2) {
-        drawMessage(choice1, choice2);
+        return drawMessage(choice1, choice2);
     } else {
         switch(choice1){
             case "rock":
