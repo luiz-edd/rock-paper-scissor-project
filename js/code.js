@@ -86,7 +86,9 @@ function game(){
         choice2 = getComputerChoice();
         
         winner = playRound(choice1, choice2);
-        winner === "playerWin" ? playerScore++ : computerScore++;
+        if(winner !== "draw") {
+            winner === "playerWin" ? playerScore++ : computerScore++;
+        }
         console.log(`Player score: ${playerScore} \nComputer score: ${computerScore}`);
     }
     if(playerScore == computerScore){
