@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.content {
+    display: flex;
+    height: 30%;
+    width: 60%;
+    flex: 0 1 auto;
+}
+
+.buttons-container {
+    width: 30%;
+    border: dotted 2px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: flex-start; */
+    flex: 0 1 auto;
+    gap: 3%;
+}
+
+.btn {
+    background-color: #008CBA;
+    font-size: large;
+    color: white;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.score-container{
+    border: solid 2px red;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.score-container div {
+    border: solid 1px black;
+} 

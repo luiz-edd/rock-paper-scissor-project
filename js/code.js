@@ -1,6 +1,7 @@
 
 
 let randomNumber = () => Math.floor( Math.random()*3 +1);
+// return a random number between 1 and 3 inclusive
 
 function getComputerChoice(){
  switch(randomNumber()){
@@ -11,19 +12,20 @@ function getComputerChoice(){
     case 3:
         return "scissor"; 
  }
- return "fodase";
+ 
 }
-// return a random number between 1 and 3 inclusive
+
+
 let loseMessage = (choice1, choice2) => {
-    console.log("Lose! You play "+choice1+" against "+ choice2);
+    divResults.textContent+="Lose! You play "+choice1+" against "+ choice2;
     return "computerWin";
 }
 let winMessage = (choice1, choice2) => {
-    console.log("Win! You play "+choice1+" against "+ choice2);
+    divResults.textContent+="Win! You play "+choice1+" against "+ choice2;
     return "playerWin";
 }
 let drawMessage = (choice1, choice2) => {
-    console.log("Draw! You play "+choice1+" against "+ choice2);
+    divResults.textContent+="Draw! You play "+choice1+" against "+ choice2;
         return "draw";
 }
 
@@ -56,10 +58,11 @@ function getPlayersChoice(){
 
 
 //play a round
-function playRound(choice1, choice2){
-    console.log("Your choose: "+choice1+"\nComputers choose: "+ choice2);
+function playRound(choice1, choice2 = getComputerChoice()){
+
+    divResults.textContent = "You choose: "+choice1+"\n| Computers choose: "+ choice2;
     if (choice1 == choice2) {
-        return drawMessage(choice1, choice2);
+        divResults.textContent += drawMessage(choice1, choice2);
     } else {
         switch(choice1){
             case "rock":
@@ -79,8 +82,10 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
     let winner;
-    console.log("Welcome to the rock paper scissor game!")
-    for(let i = 1; i<= 5; i++){
+    
+    console.log("Welcome to the rock paper scissor game!");
+
+    for(let i = 1; i<= 100; i++){
         console.log(`Round #${i} `)
         choice1 = getPlayersChoice();
         choice2 = getComputerChoice();
@@ -98,7 +103,33 @@ function game(){
     } else {
         console.log("YOU LOSE!");
     }
+
 }
-game();
+
+    const container = document.querySelector('#container');
+    const divResults = document.createElement('div');
+    container.appendChild(divResults);
+    
+
+
+
+
+   //get the choice on click buttom and plays a round
+    const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+        playRound('rock');
+    });
+
+    const paper = document.querySelector('#paper');
+    paper.addEventListener('click', ()=> {
+        playRound('paper');
+    });
+
+    const scissor = document.querySelector('#scissor');
+    scissor.addEventListener('click', () => {
+        playRound('scissor');
+    });
+
+
 
 
