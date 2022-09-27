@@ -15,8 +15,8 @@ body {
 .content {
     display: flex;
     height: 30%;
-    width: 60%;
-    flex: 0 1 auto;
+    max-width: 1000px;
+    flex: 1 1 auto;
 }
 
 .buttons-container {
